@@ -39,10 +39,12 @@ function getPlayerChoice() {
   console.error("Invalid Input!");
 }
 
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-console.log(computerSelection);
+for (let i = 0; i < 5; i++) {
+  const playerSelection = getPlayerChoice();
+  const computerSelection = getComputerChoice();
+  console.log(playRound(playerSelection.toLowerCase(), computerSelection));
+  console.log(computerSelection);
+}
 
 /*
 PROGRAM getComputerChoice
@@ -52,7 +54,7 @@ PROGRAM getComputerChoice
     RETURN
 END
 
-PROGRAM playerSelection
+PROGRAM getPlayerChoice
     Prompt player to choose either rock, paper, scissors
     IF player type wrong choices THEN
         return "Please choose either rock, paper, scissors"
@@ -83,7 +85,7 @@ PROGRAM playRound
 END
 
 PROGRAM game
-    5 TIMES DO
+    5 TIMES DO all from start
 
 END
 
