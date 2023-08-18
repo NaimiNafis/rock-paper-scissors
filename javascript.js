@@ -27,26 +27,42 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 }
+ 
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+  button.addEventListener('click', getPlayerChoice)
+});
 
 function getPlayerChoice() {
-  const input = prompt(
-    "Choose between rock, paper, and scissors",
-    ""
-  ).toLowerCase();
-  if (input == "rock" || input == "paper" || input == "scissors") {
-    return input;
-  }
-  console.error("Invalid Input!");
+  if(document.querySelector('button') = 'rock'){return 'rock'}
+  else if(document.querySelector('button') = 'paper'){return 'paper'}
+  else{return 'scissors'};
 }
 
-for (let i = 0; i < 5; i++) {
-  const playerSelection = getPlayerChoice();
-  const computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-  console.log(computerSelection);
-}
+const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection.toLowerCase(), computerSelection));
+console.log(computerSelection);
 
 /*
+PROGRAM rps-ui
+  Create 3 button
+  Assign rock, paper, scissors on each button
+
+  Create random computer generator choices
+
+  Create user choices function
+    how to connect button and user input?
+    IF user click rps button THEN
+    RETURN choice
+
+  Create playRound function
+    Compare comp and user input
+    RETURN output
+
+
+
+
 PROGRAM getComputerChoice
     Generate 3 Choices (Rock, Paper, Scissors);
     Generate random index number;
@@ -89,4 +105,13 @@ PROGRAM game
 
 END
 
+
+  const input = prompt(
+    "Choose between rock, paper, and scissors",
+    ""
+  ).toLowerCase();
+  if (input == "rock" || input == "paper" || input == "scissors") {
+    return input;
+  }
+  console.error("Invalid Input!");
 */
