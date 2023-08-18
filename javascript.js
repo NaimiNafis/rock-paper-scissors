@@ -4,45 +4,53 @@ function getComputerChoice() {
   return choices[randomIndex];
 }
 
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-    return "Tie";
+function getPlayerChoice() {
+  if (document.querySelector('button').textContent === 'rock'){
+    return 'rock';
+  } else if (document.querySelector('button').textContent === 'paper'){
+    return 'paper';
   } else {
-    if (playerSelection === "rock") {
-      if (computerSelection === "paper") {
-        return "You Lose! Paper beats Rock";
-      }
-    }
-    if (playerSelection === "paper") {
-      if (computerSelection === "scissors") {
-        return "You Lose! Scissors beats Paper";
-      }
-    }
-    if (playerSelection === "scissors") {
-      if (computerSelection === "rock") {
-        return "You Lose! Paper beats Rock";
-      }
+    return 'scissors';
+  }
+}
+
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === "rock") {
+    if (computerSelection === "paper") {
+      return "You Lose! Paper beats Rock";
     } else {
-      return `You Win! ${playerSelection} beats ${computerSelection}`;
+      return `You Win! Rock beats ${computerSelection}`;
+    }
+  }
+  if (playerSelection === "paper") {
+    if (computerSelection === "scissors") {
+      return "You Lose! Scissors beats Paper";
+    } else {
+      return `You Win! Paper beats ${computerSelection}`;
+    }
+  }
+  if (playerSelection === "scissors") {
+    if (computerSelection === "rock") {
+      return "You Lose! Rock beats Scissors";
+    } else {
+      return `You Win! Scissors beats ${computerSelection}`;
     }
   }
 }
- 
+
+const result = document.createElement('div');
+document.body.appendChild(result);
+
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
-  button.addEventListener('click', getPlayerChoice)
+  button.addEventListener('click', () => {
+    const playerSelection = getPlayerChoice();
+    const computerSelection = getComputerChoice();
+    const resultText = playRound(playerSelection, computerSelection);
+    result.textContent = resultText;
+  })
 });
 
-function getPlayerChoice() {
-  if(document.querySelector('button') = 'rock'){return 'rock'}
-  else if(document.querySelector('button') = 'paper'){return 'paper'}
-  else{return 'scissors'};
-}
-
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-console.log(computerSelection);
 
 /*
 PROGRAM rps-ui
