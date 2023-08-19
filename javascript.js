@@ -1,7 +1,3 @@
-const playerScore = 0;
-const computerScore = 0;
-const round = 0;
-
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * choices.length);
@@ -44,16 +40,20 @@ function playRound(playerSelection, computerSelection) {
 
 function updateRound(resultText){
   const scoreText = `Player : ${playerScore} | Computer : ${computerScore}`;
-  const roundText = `Round : ${round++}`;
+  const roundText = `Round : ${round}`;
   result.textContent = `${resultText} \n ${scoreText} \n ${roundText}`;
 
   if (playerScore === 5){
-    result.textContent += "So zesstyy for what??!! You killin' it!!";
+    result.textContent += " " + "Congratulations! You killin' it!!";
   } 
-  else {
-    result.textContent += "You Lose against Computer lol! Better Luck Next Time!";
+  else if (computerScore === 5){
+    result.textContent += " " + "You Lose against Computer lol! Better Luck Next Time!";
   }
 }
+
+let playerScore = 0;
+let computerScore = 0;
+let round = 0;
 
 const result = document.createElement('div');
 document.body.appendChild(result);
@@ -69,6 +69,7 @@ buttons.forEach(button => {
     }else if(resultText.includes('You Lose')){
       computerScore++;
     }
+    round++;
     updateRound(resultText);
   })
 });
