@@ -1,3 +1,7 @@
+const playerScore = 0;
+const computerScore = 0;
+const round = 0;
+
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * choices.length);
@@ -38,6 +42,19 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function updateRound(resultText){
+  const scoreText = `Player : ${playerScore} | Computer : ${computerScore}`;
+  const roundText = `Round : ${round++}`;
+  result.textContent = `${resultText} \n ${scoreText} \n ${roundText}`;
+
+  if (playerScore === 5){
+    result.textContent += "So zesstyy for what??!! You killin' it!!";
+  } 
+  else {
+    result.textContent += "You Lose against Computer lol! Better Luck Next Time!";
+  }
+}
+
 const result = document.createElement('div');
 document.body.appendChild(result);
 
@@ -47,12 +64,48 @@ buttons.forEach(button => {
     const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
     const resultText = playRound(playerSelection, computerSelection);
-    result.textContent = resultText;
+    if(resultText.includes('You Win')){
+      playerScore++;
+    }else if(resultText.includes('You Lose')){
+      computerScore++;
+    }
+    updateRound(resultText);
   })
 });
 
 
 /*
+
+we want player and comp score, round;
+
+so set 3 var,
+set playerScore and compScore and round
+
+const playerScore = 0;
+const compScore = 0;
+const round = 0;
+
+IF player win THEN
+  result.textContent = 'You win';
+  playerScore++;
+ElSE comp win THEN 
+  result.textContent = 'You Lose';
+  compScore++;
+
+  create new function, return that to result;
+
+from resultText, we got player and comp selection,
+so for 
+  round
+
+  who win
+
+
+
+
+
+
+
 PROGRAM rps-ui
   Create 3 button
   Assign rock, paper, scissors on each button
