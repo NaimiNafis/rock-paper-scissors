@@ -1,16 +1,23 @@
 body {
     font-family: Roboto, sans-serif;
     text-align: center;
+    font-size: large;
     background-color: #605e5d;
     margin: 0;
     padding: 0;
 }
 
-#main {
-    font-size: 30px;
-    font-weight: bolder;
+#header {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
+#container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;  
+}
 
 #hero {
     font-size: 50px;
