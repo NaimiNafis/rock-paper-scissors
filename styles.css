@@ -2,21 +2,24 @@ body {
     font-family: Roboto, sans-serif;
     text-align: center;
     font-size: large;
-    background-color: #605e5d;
+    background-color: rgb(237, 223, 203);
     margin: 0;
     padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 #main {
     font-size: 30px;
     font-weight: bolder;
-}
-
-#container {
     display: flex;
     flex-direction: column;
-    flex: 1;  
+    flex: 1;
 }
+
 
 /* HEADER */
 #header {
