@@ -55,8 +55,9 @@ let playerScore = 0;
 let computerScore = 0;
 let round = 0;
 
+const scoreboard = document.getElementById('scoreboard')
 const result = document.createElement('div');
-document.body.appendChild(result);
+scoreboard.appendChild(result);
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
