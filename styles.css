@@ -63,8 +63,14 @@ main img {
 
 button {
     background-color: #333;
+    margin: 10px;
     padding: 30px;
     border-radius: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 
@@ -75,10 +81,15 @@ footer {
     font-size: 20px;
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
+    padding: 10px 0 2px 0;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
+}
+
+footer p {
+    padding: 0;
+    margin: 0 0 10px 0;
 }
 
 footer a {
@@ -90,4 +101,9 @@ footer a {
 footer img {
     width: 50px;
     height: 50px;
+    transition: transform 0.2s ease-in-out;
+}
+
+footer img:hover {
+    transform: scale(1.05);
 }
